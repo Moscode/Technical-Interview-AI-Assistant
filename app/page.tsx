@@ -2,10 +2,12 @@
 import useLLM from "usellm"
 
 export default function Home() {
-  const llm = useLLM("https://usellm.org/api/llmservice");
+  const llm = useLLM();
+
   llm.chat({
     messages: [{role:"user", content:"What are you?"}],
-    onSuccess: message:any => console.log(message)
+    stream: true,
+    onStream: message => console.log(message)
   });
 
   return (
