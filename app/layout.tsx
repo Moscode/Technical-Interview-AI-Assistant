@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Technical Interview AI Assistant',
-  description: 'Help to ease technical interview preparation',
+  title: 'WisdomCoderBot by Moscode',
+  description: 'Your personalized DSA mastery tool.',
 }
 
 export default function RootLayout({
