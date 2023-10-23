@@ -35,7 +35,7 @@ export default function Home() {
     <div className="min-h-screen mx-auto my-8 max-w-[60%]">
       <div className="text-center mb-4">
       <h1 className="text-2xl font-bold">WisdomCoderBot</h1>
-      <p className="font-small">I'm an AI assistant that helps you keep note of your DSA practice problem and provide you a download PDF copy</p>
+      <p className="font-small">I am an AI assistant that helps you keep note of your DSA practice problem and provide you a download PDF copy</p>
       </div>
       <div className="flex flex-col gap-y-[20px] w-[80%] mx-auto">
         <div className="flex flex-col w-[100%]">
@@ -74,7 +74,7 @@ export default function Home() {
       </div>
       <div className="mt-4 whitespace-pre-wrap">
         <h1 className="text-3x font-semibold gray-900 underline">Built-in Methods, Algorithm Pattern and Big O Notation, & Alternative Pattern and Big O Notation</h1>
-        <p className={`${result === ""?"":"border-2 px-[4px]"}`}>{result}</p>
+        <p className={`${result === ""?"":"border-2 p-[4px]"}`}>{result}</p>
       </div>
       </div>
   );
