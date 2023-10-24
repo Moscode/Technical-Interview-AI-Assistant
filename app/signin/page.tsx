@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function Page(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     const router = useRouter()
 
@@ -15,7 +16,7 @@ export default function Page(){
         const {result, error} = await SignIn({email, password})
 
         if (error){
-            console.log(error)
+            setError("Failed to Signin")
             return;
         }
 
@@ -24,21 +25,46 @@ export default function Page(){
     }
 
     return(
-        <div className="">
+        <div className="bg-indigo-600 flex flex-col md:flex-row h-[100vh]">
+        <div className="w-full md:w-1/2 bg-indigo-600 p-6 mx-auto">
         <div className="form-wrapper">
-            <h1 className="mt-60 mb-30">Sign in</h1>
+            <h1 className="text-white text-3xl mt-6 mb-6">Sign in</h1>
             <form onSubmit={handleSignIn} className="form">
-                <label htmlFor="email">
+                <label htmlFor="email" className="text-white text-lg">
                     <p>Email</p>
-                    <input onChange={(e) => setEmail(e.target.value)} required type="email" name="email" id="email" placeholder="example@mail.com" />
+                    <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="example@mail.com"
+                        className="w-full py-2 px-3 rounded-lg bg-indigo-800 text-white placeholder-gray-400 focus:outline-none focus:ring focus:border-indigo-300"
+                    />
                 </label>
-                <label htmlFor="password">
+                <label htmlFor="password" className="text-white text-lg">
                     <p>Password</p>
-                    <input onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" />
+                    <input
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="password"
+                        className="w-full py-2 px-3 rounded-lg bg-indigo-800 text-white placeholder-gray-400 focus:outline-none focus:ring focus:border-indigo-300"
+                    />
                 </label>
-                <button type="submit">Sign in</button>
+                <p className="text-red-500 text-sm mt-2">{error}</p>
+                <button
+                    type="submit"
+                    className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-6 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
+                >
+                    Sign in
+                </button>
             </form>
         </div>
     </div>
+</div>
+
     )
 }
