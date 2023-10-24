@@ -54,10 +54,10 @@ export default function Page(){
                         className="w-full py-2 px-3 rounded-lg bg-indigo-800 text-white placeholder-gray-400 focus:outline-none focus:ring focus:border-indigo-300"
                     />
                 </label>
-                <p className="text-red-900 text-sm mt-2">{error}</p>
+                <p className={`text-[#b42b3c] text-sm mt-2 ${error===''?'hidden':'bg-[#f6e6e4] rounded-lg'} px-2 py-2 w-[20%]`}>{error}</p>
                 <button
                     type="submit"
-                    className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-6 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
+                    className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-4 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
                 >
                     Sign in
                 </button>
