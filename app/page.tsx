@@ -1,6 +1,11 @@
 "use client";
 import useLLM from "usellm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import addData from "@/firebase/firestore/addData";
+import { getAuth, signOut } from "firebase/auth";
+
 
 export default function Home() {
   const llm = useLLM();
@@ -8,6 +13,15 @@ export default function Home() {
   const [solution, setSolution] = useState("");
   const [language, setLanguage] = useState("");
   const [result, setResult] = useState("");
+
+  function handleSignOut(){
+    const auth = getAuth();
+  signOut(auth).then(() => {
+    console.log("succefully signout")
+  }).catch((error) => {
+    console.log(error)
+  });
+  }
 
   async function handleClick() {
     try {
@@ -19,8 +33,15 @@ export default function Home() {
           language: language
         },
         stream: true,
-        onStream: ({ message }) => {
+        onStream: async ({ message }) => {
           setResult(message.content)
+          const messageObj = {message: message.content}
+          const {result, error} = await addData('users', 'user-id', messageObj)
+          if (error){
+            console.log('error', error)
+            return
+          }
+          console.log(result)
         },
         onError: (error:any) => {
           console.error("Failed to connect", error)
@@ -31,8 +52,16 @@ export default function Home() {
       console.error("Something went wrong!", error);
     }
   }
-  return (
-    <div className="min-h-screen mx-auto my-8 max-w-[60%]">
+  const { user } = useAuthContext()
+  const router = useRouter()
+  useEffect(()=>{
+    if(user === null){
+      router.push("/signin")
+    }
+  })
+ 
+   return (
+     <div className="min-h-screen mx-auto my-8 max-w-[60%]">
       <div className="text-center mb-4">
       <h1 className="text-2xl font-bold">WisdomCoderBot</h1>
       <p className="font-small">I am an AI assistant that helps you keep note of your DSA practice problem and provide you a download PDF copy</p>
@@ -71,11 +100,16 @@ export default function Home() {
         >
           Submit
         </button>
+        <button
+          className="rounded border border-black dark:border-white p-2 hover:bg-red-700 hover:text-white"
+          onClick={handleSignOut}
+        >
+          Logout
+        </button>
       </div>
       <div className="mt-4 whitespace-pre-wrap">
         <h1 className="text-3x font-semibold gray-900 underline">Built-in Methods, Algorithm Pattern and Big O Notation, & Alternative Pattern and Big O Notation</h1>
         <p className={`${result === ""?"":"border-2 p-[4px]"}`}>{result}</p>
       </div>
-      </div>
-  );
+      </div>)
 }
