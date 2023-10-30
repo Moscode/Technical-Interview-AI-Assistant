@@ -1,5 +1,6 @@
 "use client"
 import SignIn from "@/firebase/auth/signin";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -26,7 +27,7 @@ export default function Page(){
 
     return(
         <div className="bg-indigo-600 flex flex-col h-[100vh]">
-        <div><img className="w-[8%] rounded-[40%] ml-[30px] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
+        <div><Image className="w-[8%] rounded-[40%] ml-[30px] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
         <div className="w-full md:w-1/2 bg-indigo-600 p-6 mx-auto">
         <div className="form-wrapper">
             <h1 className="text-white text-3xl mt-6 mb-6">Sign in</h1>

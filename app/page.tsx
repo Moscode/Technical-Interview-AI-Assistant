@@ -5,6 +5,7 @@ import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import addData from "@/firebase/firestore/addData";
 import { getAuth, signOut } from "firebase/auth";
+import Image from "next/image";
 
 
 export default function Home() {
@@ -62,7 +63,7 @@ export default function Home() {
  
    return (
      <div className="min-h-screen mx-auto my-8 max-w-[60%]">
-      <div><img className="w-[15%] rounded-[40%] ml-[-30%] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
+      <div><Image className="w-[15%] rounded-[40%] ml-[-30%] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
       <div className="text-center mb-4">
       <h1 className="text-2xl font-bold">WisdomCoderBot</h1>
       <p className="font-small">I am an AI assistant that helps you keep note of your DSA practice problem and provide you a download PDF copy</p>
