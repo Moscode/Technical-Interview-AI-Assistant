@@ -56,7 +56,7 @@ export default function Page(){
                     />
                 </label>
                 <p className={`text-[#b42b3c] text-sm mt-2 ${error===''?'hidden':'bg-[#f6e6e4] rounded-lg'} px-2 py-2 w-[20%]`}>{error}</p>
-                <p>Already have an account?{' '}<span className="text-[#ffca44] underline cursor-pointer pt-2" onClick={()=> router.push("/signin")}>Login</span></p>
+                <p className="font-bold pt-4">Already have an account?{' '}<span className="text-[#ffca44] underline cursor-pointer pt-2" onClick={()=> router.push("/signin")}>Login</span></p>
                 <button
                     type="submit"
                     className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-4 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
