@@ -31,7 +31,7 @@ export const AuthContextProvider = ({children}:any) => {
 
     return(
         <AuthContext.Provider value={{ user }}>
-            {loading ? <div>Loading...</div>:children}
+            {loading ? <div className="bg-indigo-600 w-[100%] mx-auto flex justify-center h-[100vh] items-center"><div className="w-[50px] h-[50px] border-[3px] rounded-[50px] border-[#ffffff36] border-t-[#fff] animate-spin"></div></div>:children}
         </AuthContext.Provider>
     )
 }

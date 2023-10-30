@@ -4,9 +4,18 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './context/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      keyframes:{
+        "loader":{
+         "0%, 100%":{transform:"rotate(360deg)"}
+        },
+      animation: {
+        "loader": "loader 1s ease-in-out infinite"
+      }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

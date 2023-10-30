@@ -25,7 +25,8 @@ export default function Page(){
     }
 
     return(
-        <div className="bg-indigo-600 flex flex-col md:flex-row h-[100vh]">
+        <div className="bg-indigo-600 flex flex-col h-[100vh]">
+            <div><img className="w-[8%] rounded-[40%] ml-[30px] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
         <div className="w-full md:w-1/2 bg-indigo-600 p-6 mx-auto">
         <div className="form-wrapper">
             <h1 className="text-white text-3xl mt-6 mb-6">Sign up</h1>
@@ -55,6 +56,7 @@ export default function Page(){
                     />
                 </label>
                 <p className={`text-[#b42b3c] text-sm mt-2 ${error===''?'hidden':'bg-[#f6e6e4] rounded-lg'} px-2 py-2 w-[20%]`}>{error}</p>
+                <p>Already have an account?{' '}<span className="text-[#ffca44] underline cursor-pointer pt-2" onClick={()=> router.push("/signin")}>Login</span></p>
                 <button
                     type="submit"
                     className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-4 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
