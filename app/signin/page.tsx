@@ -64,8 +64,8 @@ export default function Page(){
                     />
                 </label>
                 <p className={`text-[#b42b3c] text-sm mt-2 ${error===''?'hidden':'bg-[#f6e6e4] rounded-lg'} px-2 py-2 w-[20%]`}>{error}</p>
-                <p className="font-bold pt-4">Forgot Password?{' '}<span className="text-[#ffca44] underline cursor-pointer" onClick={()=> router.push("/passwordreset")}>Recover it</span></p>
-                <p className="font-bold">Don't have an account?{' '}<span className="text-[#ffca44] underline cursor-pointer" onClick={()=> router.push("/signup")}>Create one for free</span></p>
+                <p className="font-bold pt-4">Forgot Password? <span className="text-[#ffca44] underline cursor-pointer" onClick={()=> router.push("/passwordreset")}>Recover it</span></p>
+                <p className="font-bold">Do not have an account? <span className="text-[#ffca44] underline cursor-pointer" onClick={()=> router.push("/signup")}>Create one for free</span></p>
                 <button
                     type="submit"
                     className="bg-indigo-900 text-white text-lg py-2 px-4 rounded-lg mt-4 hover:bg-indigo-700 focus:outline-none focus:ring focus:border-indigo-300"
