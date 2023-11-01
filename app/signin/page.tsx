@@ -4,6 +4,13 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+const imageStyle = {
+    borderRadius: '100%',
+    marginLeft: '30px',
+    marginTop:'30px',
+    marginBottom:'5%'
+  }
+  
 export default function Page(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,7 +34,7 @@ export default function Page(){
 
     return(
         <div className="bg-indigo-600 flex flex-col h-[100vh]">
-        <div><Image className="w-[8%] rounded-[40%] ml-[30px] mt-[30px] mb-[5%]" src="./wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
+        <div><Image width={50} height={50} style={imageStyle} src="/../public/wisdomcoderbotlogo.png" alt="wisdomcoderbot"/></div>
         <div className="w-full md:w-1/2 bg-indigo-600 p-6 mx-auto">
         <div className="form-wrapper">
             <h1 className="text-white text-3xl mt-6 mb-6">Sign in</h1>
